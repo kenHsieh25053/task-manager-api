@@ -1,10 +1,11 @@
 # task-manager-api
 
-##一個可以讓使用者註冊後新增代辦事項的API
+##一個可以讓使用者註冊後新增代辦事項的API##
 
+##Domain url##
 https://ken-task-manager.herokuapp.com
 
-##API
+##API##
 -------------------
 |    HTTP Methods | Endpoint                   | Describtion            |
 | ----------------| ---------------------------|------------------------
