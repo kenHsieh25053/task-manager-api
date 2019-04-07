@@ -29,8 +29,8 @@ https://ken-task-manager.herokuapp.com
 ## 資料欄位
 -------------------
 ### users
-|   Column Name |   Type   ｜ Required   |  Description            
-| --------------| ---------|-----------------------------
+|   Column Name |   Type   ｜ Required    | Description                   |
+| --------------| ---------|-------------|--------------------------------
 |  name         | string   | true        | 使用者名稱   
 |  email        | string   | true        | 電子郵件
 |  password     | string   | true        | 密碼
@@ -39,8 +39,8 @@ https://ken-task-manager.herokuapp.com
 |  avatar       | buffer   | false       | 使用者上傳圖像，會自動裁切成250*250
 
 ### tasks
-|   Column Name |   Type   ｜ Required      |  Description            
-| --------------| ---------|----------------------------
+|   Column Name |   Type   ｜ Required      |  Description   |         
+| --------------| ---------|---------------------------------
 |  description  | string   | true           | 代辦事項
 |  completed    | boolean  | default: false | 是否完成。預設否
 |  owner        | objectid | true           | 使用者ID
