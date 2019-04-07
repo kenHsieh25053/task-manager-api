@@ -7,7 +7,7 @@ https://ken-task-manager.herokuapp.com
 
 ## API
 -------------------
-|    HTTP Methods | Endpoint                   | Describtion            |
+|    HTTP Methods | Endpoint                   | Description            |
 | ----------------| ---------------------------|------------------------
 | GET             | /users/me                  | 取得該用戶資訊(需登入)
 | GET             | /users/me/avatar           | 取得該用戶上傳圖像(需登入)
