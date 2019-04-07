@@ -2,7 +2,7 @@
 
 ## 一個可以讓使用者註冊後新增、修改與刪除代辦事項的API
 
-## Domain url
+## Domain
 https://ken-task-manager.herokuapp.com
 
 ## API
