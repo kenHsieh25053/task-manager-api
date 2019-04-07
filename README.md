@@ -40,7 +40,7 @@ https://ken-task-manager.herokuapp.com
 
 ### tasks
 |   Column Name |   Type   | Required       | Description            
-| --------------| ---------|---------------------------------
+| --------------| ---------|----------------|----------------
 |  description  | string   | true           | 代辦事項
 |  completed    | boolean  | default: false | 是否完成。預設否
 |  owner        | objectid | true           | 使用者ID
