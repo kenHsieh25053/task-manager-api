@@ -1,11 +1,11 @@
 # task-manager-api
 
-##一個可以讓使用者註冊後新增代辦事項的API##
+## 一個可以讓使用者註冊後新增、修改與刪除代辦事項的API
 
-##Domain url##
+## Domain url
 https://ken-task-manager.herokuapp.com
 
-##API##
+## API
 -------------------
 |    HTTP Methods | Endpoint                   | Describtion            |
 | ----------------| ---------------------------|------------------------
@@ -26,3 +26,32 @@ https://ken-task-manager.herokuapp.com
 | DELETE          | /tasks/:id                 | 使用者刪除代辦事項
 | DELETE          | /users/me/avatar           | 使用者刪除上傳圖像
 
+## 操作流程 (使用postman操作)
+1. 創立使用者
+2. 登入
+* 建立待辦事項
+* 讀取待辦事項
+* 讀取使用者膽案
+* 上傳使用者圖像
+* 刪除上傳圖像
+* 新增任務
+* 修改任務
+* 修改使用者檔案
+* 刪除待辦事項
+* 刪除使用者檔案
+
+## 技術
+* nodejs 後端javascript 執行環境
+* express web框架
+* mogooese 操作mongodb
+* jsonwebtoken 用來驗證使用者
+* bcryptjs 加密密碼
+* validator 驗證email格式
+* multer 處理圖片
+
+* nodemon 不用一直重啟node, 開發時使用
+* env-cmd 設定好開發與測試環境指令
+* jest 測試工具
+* supertest 模擬客戶端請求測試工具
+
+* 部署在Heroku
