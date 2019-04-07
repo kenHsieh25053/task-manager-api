@@ -54,4 +54,6 @@ https://ken-task-manager.herokuapp.com
 * jest 測試工具
 * supertest 模擬客戶端請求測試工具
 
-* 部署在Heroku
+* 服務部署在Heroku
+* DB部署在Mongodb Atlas
+* 使用 sendgrid發email當登入或刪除用戶時
