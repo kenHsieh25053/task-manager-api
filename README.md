@@ -76,4 +76,4 @@ https://ken-task-manager.herokuapp.com
 
 * 服務部署在Heroku
 * DB部署在Mongodb Atlas
-* 使用 sendgrid發email當登入或刪除用戶時
+* 使用 sendgrid發email當註冊或刪除用戶時
