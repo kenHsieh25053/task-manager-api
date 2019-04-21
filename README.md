@@ -15,8 +15,10 @@ https://ken-task-manager.herokuapp.com
 | GET             | /tasks/:id                 | 取得該用戶創建某代辦事項(需登入)
 | GET             | /tasks?sortBy=createAt:desc| 取得該用戶創建所有待辦事項依建立時間排序(降冪。需登入)
 | GET             | /tasks?sortBy=createAt:asc | 取得該用戶創建所有待辦事項依建立時間排序(升冪。需登入)
-| GET             | /tasks?completed=true       | 取得該用戶創建所有待辦事項依照是否完成(是。需登入)
-| GET             | /tasks?completed=false      | 取得該用戶創建所有待辦事項依照是否完成(否。需登入)
+| GET             | /tasks?completed=true      | 取得該用戶創建所有待辦事項依照是否完成(是。需登入)
+| GET             | /tasks?completed=false     | 取得該用戶創建所有待辦事項依照是否完成(否。需登入)
+| GET             | /tasks?limit=int           | 取得前幾項代辦事項(需登入)
+| GET             | /tasks?skip=int            | 略過幾項代辦事項(需登入)
 | POST            | /users                     | 創建使用者
 | POST            | /tasks                     | 創建代辦事項(需登入)
 | POST            | /users/login               | 使用者登入
