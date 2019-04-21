@@ -1,5 +1,6 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose') // Import mongoose module for manipulating mongodb
 
+// Define task schema
 const TaskSchema = new mongoose.Schema({
     description: {
         type: String,
@@ -10,10 +11,11 @@ const TaskSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
+    // Store user's id
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: 'User'
+        ref: 'User' // Refer to user collection
     },
 }, {
     timestamps: true

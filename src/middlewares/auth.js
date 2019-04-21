@@ -1,7 +1,7 @@
-const jwt = require('jsonwebtoken')
-const User = require('../models/users')
+const jwt = require('jsonwebtoken') // Import jsonwebtoken for generating jwtoken
+const User = require('../models/users') // Import user module for saving user data
 
-
+// Define authentication middleware
 const auth = async (req, res, next) => {
     try {
         const token = req.header('Authorization').replace('Bearer ', '')
@@ -20,7 +20,7 @@ const auth = async (req, res, next) => {
 
     } catch (e) {
         res.status(401).send({
-            error: "Please authorizate."
+            error: "Please authenticate."
         })
     }
 }

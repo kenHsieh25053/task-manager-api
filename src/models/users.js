@@ -1,10 +1,10 @@
-const mongoose = require('mongoose')
-const validator = require('validator')
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-const Task = require('./tasks')
-const sharp = require('sharp')
+const mongoose = require('mongoose') // Import mongoose module for manipulating mongodb
+const validator = require('validator') // Import validator module for validating data
+const bcrypt = require('bcryptjs') // Import bcryptjs for encrypting password
+const jwt = require('jsonwebtoken') // Import jsonwebtoken for generating jwtoken
+const Task = require('./tasks') // import Task model for user model referance
 
+// Define user schema 
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -16,6 +16,7 @@ const userSchema = new mongoose.Schema({
         unique: true,
         required: true,
         lowercase: true,
+        // Validator for email format
         validate(value) {
             if (!validator.isEmail(value)) {
                 throw new Error('Email is invalid')
@@ -27,6 +28,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: 7,
         trim: true,
+        // Validator for password value
         validate(value) {
             if (value.toLowerCase().includes('password')) {
                 throw new Error("Password cannot contain 'password'")
@@ -36,6 +38,7 @@ const userSchema = new mongoose.Schema({
     age: {
         type: Number,
         default: 0,
+        // Validator for age value
         validate(value) {
             if (value < 0) {
                 throw new Error("Age must be a postive number")
@@ -55,15 +58,17 @@ const userSchema = new mongoose.Schema({
     timestamps: true
 })
 
+// Set up relationship between users and tasks document
 userSchema.virtual('tasks', {
     ref: 'Task',
     localField: '_id',
     foreignField: 'owner'
 })
 
-// Remove private information 
+// Remove private information and send it back to user
 userSchema.methods.toJSON = function () {
     const user = this
+    // Get raw user data
     const userObject = user.toObject()
 
     delete userObject.password
@@ -73,8 +78,10 @@ userSchema.methods.toJSON = function () {
     return userObject
 }
 
+// Assign generateAuthToken function to userSechema (apply to document)
 userSchema.methods.generateAuthToken = async function () {
     const user = this
+    // Use userid and jwt_secert to generateauthtoken
     const token = jwt.sign({
         _id: user._id.toString()
     }, process.env.JWT_SECERT)
@@ -85,6 +92,7 @@ userSchema.methods.generateAuthToken = async function () {
     return token
 }
 
+// Assign findByCredentials function to userSechema (apply to model)
 userSchema.statics.findByCredentials = async (email, password) => {
     const user = await User.findOne({
         email
@@ -103,14 +111,16 @@ userSchema.statics.findByCredentials = async (email, password) => {
     return user
 }
 
+// Encrypt user password if it has been created or changed before saving in db
 userSchema.pre('save', async function (next) {
-    const user = this
+    const user = this // this refers to user document
     if (user.isModified('password')) {
         user.password = await bcrypt.hash(user.password, 8)
     }
     next()
 })
 
+// Delete tasks which created by same user before removing user
 userSchema.pre('remove', async function (next) {
     const user = this
     await Task.deleteMany({
@@ -119,6 +129,7 @@ userSchema.pre('remove', async function (next) {
     next()
 })
 
+// Create user model
 const User = mongoose.model('User', userSchema)
 
 module.exports = User
