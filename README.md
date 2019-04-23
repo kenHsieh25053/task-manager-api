@@ -47,7 +47,7 @@ https://ken-task-manager.herokuapp.com
 | --------------| ---------|----------------|----------------
 |  description  | string   | true           | 代辦事項
 |  completed    | boolean  | default: false | 是否完成。預設否
-|  owner        | objectid | true           | 使用者ID
+|  owner        | objectid | true           | 使用者ID，系統自動帶入
 
 
 ## 操作流程 (使用postman操作)
